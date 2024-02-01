@@ -28,7 +28,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     handleThemeChange();
-  }, [mode]); // Add an empty dependency array here
+  }, [mode]);
 
   return (
     <ThemeContext.Provider value={{ mode, setMode }}>
