@@ -2,6 +2,7 @@ import { QUESTIONS, TAGS } from "@/constants";
 
 import Image from "next/image";
 import Link from "next/link";
+import Tag from "../Tags/Tag";
 
 const Rightsidebar = () => {
   return (
@@ -32,18 +33,13 @@ const Rightsidebar = () => {
         <h3 className="h3-bold text-dark200_light900">Popular Tags</h3>
         <div className="mt-7 flex flex-col gap-4">
           {TAGS.map((tag, index) => (
-            <Link
+            <Tag
               key={index}
-              href={`/tags/${tag.id}`}
-              className="flex justify-between gap-2"
-            >
-              <div className="subtle-medium background-light800_dark300 text-light400_light500 inline-flex items-center rounded-md border border-none border-transparent bg-slate-900 px-4 py-2 text-xs font-semibold uppercase shadow transition-colors hover:bg-slate-900/80 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 dark:border-slate-800 dark:bg-slate-50 dark:text-slate-900 dark:hover:bg-slate-50/80 dark:focus:ring-slate-300">
-                {tag.name}
-              </div>
-              <span className="small-medium text-dark500_light700">
-                {tag.count}
-              </span>
-            </Link>
+              id={tag.id}
+              name={tag.name}
+              count={tag.count}
+              showCount
+            />
           ))}
         </div>
       </div>

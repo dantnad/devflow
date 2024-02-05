@@ -97,32 +97,32 @@ export const QUESTIONS = [
 
 export const TAGS = [
   {
-    id: 1,
+    id: "1",
     name: "React",
     count: 100,
   },
   {
-    id: 2,
+    id: "2",
     name: "JavaScript",
     count: 200,
   },
   {
-    id: 3,
+    id: "3",
     name: "TypeScript",
     count: 50,
   },
   {
-    id: 4,
+    id: "4",
     name: "NextJS",
     count: 75,
   },
   {
-    id: 5,
+    id: "5",
     name: "NodeJS",
     count: 150,
   },
   {
-    id: 6,
+    id: "6",
     name: "Express",
     count: 100,
   },
