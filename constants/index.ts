@@ -71,3 +71,59 @@ export const BADGE_CRITERIA = {
     GOLD: 100000,
   },
 };
+
+export const QUESTIONS = [
+  {
+    id: 1,
+    title: "What is the best way to learn React?",
+  },
+  {
+    id: 2,
+    title: "Is JavaScript a programming language?",
+  },
+  {
+    id: 3,
+    title: "How to become a full-stack developer?",
+  },
+  {
+    id: 4,
+    title: "Is NextJS better than React?",
+  },
+  {
+    id: 5,
+    title: "Async/Await vs Promises",
+  }
+]
+
+export const TAGS = [
+  {
+    id: 1,
+    name: "React",
+    count: 100,
+  },
+  {
+    id: 2,
+    name: "JavaScript",
+    count: 200,
+  },
+  {
+    id: 3,
+    name: "TypeScript",
+    count: 50,
+  },
+  {
+    id: 4,
+    name: "NextJS",
+    count: 75,
+  },
+  {
+    id: 5,
+    name: "NodeJS",
+    count: 150,
+  },
+  {
+    id: 6,
+    name: "Express",
+    count: 100,
+  },
+]
