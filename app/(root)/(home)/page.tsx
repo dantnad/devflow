@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import SearchBar from "@/components/shared/Search/SearchBar";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
         </Link>
       </div>
       <div className="mt-11 flex justify-between gap-5 max-sm:flex-col sm:items-center">
-        LocalSearchBar Filters
+        <SearchBar local dataType="questions" extraClasses="flex-1" /> Filters
       </div>
     </>
   );
