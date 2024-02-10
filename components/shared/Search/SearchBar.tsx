@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
@@ -24,8 +24,6 @@ interface GlobalSearchProps extends commonProps {
   dataType?: never;
 }
 
-type SearchProps = LocalSearchProps | GlobalSearchProps;
-
 // ? Idea for routing
 // const dataRoutes = {
 //   questions: "/questions",
@@ -35,13 +33,13 @@ type SearchProps = LocalSearchProps | GlobalSearchProps;
 //   jobs: "/jobs",
 // };
 
-const SearchBar = ({
+const SearchBar: React.FC<LocalSearchProps | GlobalSearchProps> = ({
   local,
   dataType,
   icon,
   iconPosition = "left",
   extraClasses,
-}: SearchProps) => {
+}) => {
   // ? Idea const route = local ? dataRoutes[dataType] : "/";
 
   const [search, setSearch] = useState("");

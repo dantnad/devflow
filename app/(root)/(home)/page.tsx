@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import FilterBox from "@/components/shared/Search/Filters";
 import Link from "next/link";
 import SearchBar from "@/components/shared/Search/SearchBar";
 
@@ -13,8 +14,9 @@ export default function Home() {
           </Button>
         </Link>
       </div>
-      <div className="mt-11 flex justify-between gap-5 max-sm:flex-col sm:items-center">
-        <SearchBar local dataType="questions" extraClasses="flex-1" /> Filters
+      <div className="mt-11 flex flex-col justify-between gap-5">
+        <SearchBar local dataType="questions" extraClasses="flex-1" />{" "}
+        <FilterBox />
       </div>
     </>
   );
