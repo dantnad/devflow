@@ -56,10 +56,10 @@ const FilterBox = () => {
             handleFilter(value);
           }}
         >
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="no-focus background-light900_dark300 text-dark200_light900 w-[180px] focus:ring-0 focus:ring-transparent dark:border-light-850">
             <SelectValue placeholder="Choose a filter..." />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="background-light900_dark300 text-dark200_light900 no-focus border-none outline-none">
             {FILTERS.map((filter) => (
               <SelectItem key={filter} value={filter}>
                 {filter}
