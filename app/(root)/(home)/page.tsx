@@ -15,7 +15,7 @@ export default function Home() {
           </Button>
         </Link>
       </div>
-      <div className="mt-11 flex flex-col justify-between gap-5">
+      <div className="mt-11 flex flex-col justify-between gap-5 max-md:flex-row max-sm:flex-col">
         <SearchBar local dataType="questions" extraClasses="flex-1" />{" "}
         <FilterBox filters={HomePageFilters} />
       </div>

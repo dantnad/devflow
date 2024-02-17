@@ -11,6 +11,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Filter } from "@/types";
+import { SelectGroup } from "@radix-ui/react-select";
 
 interface FilterBoxProps {
   filters: Filter[];
@@ -18,11 +19,9 @@ interface FilterBoxProps {
 }
 
 const FilterBox = ({ filters }: FilterBoxProps) => {
-  const [currentFilter, setCurrentFilter] = useState<false | Filter["name"]>(
-    false
-  );
+  const [currentFilter, setCurrentFilter] = useState<false | Filter>(false);
 
-  const handleFilter = (filterValue: Filter["name"]): void => {
+  const handleFilter = (filterValue: Filter | false): void => {
     if (filterValue === currentFilter) {
       setCurrentFilter(false);
     } else {
@@ -36,38 +35,46 @@ const FilterBox = ({ filters }: FilterBoxProps) => {
 
   return (
     <>
-      <div className="flex gap-4 max-sm:hidden">
+      <div className="mt-10 hidden min-h-[56px] flex-wrap gap-3 sm:min-w-[170px] md:flex">
         {filters.map((filter) => (
           <Button
             key={filter.name}
-            onClick={() => handleFilter(filter.name)}
-            className={`subtle-medium no-focus text-light400_light500 inline-flex items-center rounded-md border border-none border-transparent px-4 py-2 text-sm font-medium shadow transition-colors ${
-              filter.name === currentFilter
-                ? "bg-primary-100 text-primary-500"
-                : "background-light800_dark300"
+            onClick={() => handleFilter(filter)}
+            className={`body-medium no-focus text-light400_light500 inline-flex items-center rounded-lg border border-none border-transparent px-4 py-2 text-sm font-medium shadow transition-colors ${
+              currentFilter && filter.name === currentFilter.name
+                ? "bg-primary-100 text-primary-500 hover:bg-primary-500 hover:text-primary-100"
+                : "background-light800_dark300 hover:background-light800_dark400"
             }`}
           >
             {filter.name}
           </Button>
         ))}
       </div>
-      <div className="flex gap-4 sm:hidden">
+      <div className="hidden gap-4 max-md:flex">
         <Select
-          value={currentFilter || ""}
-          onValueChange={(value: string | "clear"): void => {
-            if (value === "clear") return setCurrentFilter(false);
-            handleFilter(value);
+          value={currentFilter ? currentFilter.name : ""}
+          onValueChange={(value: string | "clear") => {
+            if (value === "clear") {
+              setCurrentFilter(false);
+            }
+            const newFilter =
+              filters.find((filter) => filter.name === value) || false;
+            handleFilter(newFilter);
           }}
         >
-          <SelectTrigger className="no-focus background-light900_dark300 text-dark200_light900 w-[180px] focus:ring-0 focus:ring-transparent dark:border-light-850">
-            <SelectValue placeholder="Choose a filter..." />
+          <SelectTrigger className="body-regular light-border background-light800_dark300 text-dark500_light700 min-h-[56px] border px-5 py-2.5">
+            <div className="line-clamp-1">
+              <SelectValue placeholder="Select a filter..." />
+            </div>
           </SelectTrigger>
           <SelectContent className="background-light900_dark300 text-dark200_light900 no-focus border-none outline-none">
-            {filters.map((filter) => (
-              <SelectItem key={filter.name} value={filter.name}>
-                {filter.name}
-              </SelectItem>
-            ))}
+            <SelectGroup>
+              {filters.map((filter) => (
+                <SelectItem key={filter.name} value={filter.name}>
+                  {filter.name}
+                </SelectItem>
+              ))}
+            </SelectGroup>
             <SelectItem
               key="clear"
               value="clear"
