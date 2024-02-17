@@ -1,13 +1,11 @@
 import Link from "next/link";
-
-interface RenderTagProps {
-  name: string;
-  id: string;
+import { Tag } from "@/types";
+interface TagProps extends Tag {
   count?: number;
   showCount?: boolean;
 }
 
-const RenderTag = ({ name, count, showCount, id }: RenderTagProps) => {
+const TagComponent = ({ name, count, showCount, id }: TagProps) => {
   return (
     <>
       <Link
@@ -25,4 +23,4 @@ const RenderTag = ({ name, count, showCount, id }: RenderTagProps) => {
     </>
   );
 };
-export default RenderTag;
+export default TagComponent;
