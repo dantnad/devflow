@@ -1,6 +1,17 @@
 import { BADGE_CRITERIA } from "@/constants";
 
-export type Filter = {
+export interface User {
+  id: string;
+  name: string;
+  avatar: string;
+}
+
+export interface Tag {
+  id: string;
+  name: string;
+}
+
+export interface Filter {
   name: string;
   value: string;
 }

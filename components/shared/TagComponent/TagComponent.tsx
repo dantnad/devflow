@@ -1,13 +1,11 @@
 import Link from "next/link";
-
-interface TagProps {
-  name: string;
-  id: string;
+import { Tag } from "@/types";
+interface TagProps extends Tag {
   count?: number;
   showCount?: boolean;
 }
 
-const Tag = ({ name, count, showCount, id }: TagProps) => {
+const TagComponent = ({ name, count, showCount, id }: TagProps) => {
   return (
     <>
       <Link
@@ -25,4 +23,4 @@ const Tag = ({ name, count, showCount, id }: TagProps) => {
     </>
   );
 };
-export default Tag;
+export default TagComponent;
