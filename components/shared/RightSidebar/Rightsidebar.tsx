@@ -2,7 +2,7 @@ import { QUESTIONS, TAGS } from "@/constants";
 
 import Image from "next/image";
 import Link from "next/link";
-import Tag from "../Tags/Tag";
+import Tag from "../TagComponent/TagComponent";
 
 const Rightsidebar = () => {
   return (

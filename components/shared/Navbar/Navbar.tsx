@@ -1,10 +1,10 @@
 import { SignedIn, UserButton } from "@clerk/nextjs";
 
-import GlobalSearch from "../Search/GlobalSearch";
 import Image from "next/image";
 import Link from "next/link";
 import MobileNav from "./MobileNav";
 import React from "react";
+import SearchBar from "../Search/SearchBar";
 import Theme from "./Theme";
 
 const Navbar = () => {
@@ -21,7 +21,9 @@ const Navbar = () => {
           Dev<span className="text-primary-500">Flow</span>
         </p>
       </Link>
-      <GlobalSearch />
+      <div className="relative w-full max-w-[600px] max-lg:hidden">
+        <SearchBar />
+      </div>
       <div className="flex-between gap-5">
         <Theme />
         <SignedIn>

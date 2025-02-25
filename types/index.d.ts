@@ -1,5 +1,21 @@
 import { BADGE_CRITERIA } from "@/constants";
 
+export interface User {
+  id: string;
+  name: string;
+  avatar: string;
+}
+
+export interface Tag {
+  id: string;
+  name: string;
+}
+
+export interface Filter {
+  name: string;
+  value: string;
+}
+
 export interface SidebarLink {
   imgURL: string;
   route: string;
